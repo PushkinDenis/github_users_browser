@@ -1,15 +1,39 @@
+@import "variables.scss";
+
 .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: $colorWhite;
+  width: -webkit-fill-available;
+  align-items: center;
+
   &__ul {
     display: flex;
     list-style-type: none;
+    align-items: center;
+    width: fit-content;
+    margin-left: 16px;
   }
+
   &__li {
+    text-align: center;
     margin-right: 20px;
+    &:nth-last-child(1) {
+      margin-right: 0;
+    }
   }
-  &__search {
-    display: flex;
-  }
-  &__input {
-    margin-left: 20px;
+  &__users {
+    padding: 5px;
+    border: 2px solid $colorWhite;
+    border-radius: 5px;
+    font-size: 18px;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+      color: $colorActive;
+      border: 1px solid $colorActive;
+    }
   }
 }

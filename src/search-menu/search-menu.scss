@@ -1,0 +1,40 @@
+@import "variables.scss";
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  &__input-wrapper {
+    display: flex;
+    width: 200px;
+    margin: 0 10px;
+  }
+  &__input {
+    width: inherit;
+    border: 2px solid $colorWhite;
+    background-color: $colorGrey;
+    border-radius: 15px;
+    padding: 10px 10px;
+    &:hover {
+      border: 2px solid $colorBody;
+    }
+    &:focus {
+      border: 2px solid $colorBody;
+    }
+  }
+  &__button {
+    padding: 5px;
+    border: 2px solid $colorWhite;
+    border-radius: 5px;
+    font-size: 16px;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid $colorBody;
+      color: $colorBody;
+    }
+  }
+}

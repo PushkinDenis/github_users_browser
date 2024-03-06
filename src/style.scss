@@ -1,7 +1,7 @@
 @import "variables.scss";
 @import url(../src/header/header.scss);
 @import url(../src/nav-bar/nav-bar.scss);
-
+@import url(../src/search-menu/search-menu.scss);
 * {
   margin: 0;
   padding: 0;
@@ -22,4 +22,12 @@ a:active {
 }
 a {
   text-decoration: none;
+}
+input:focus {
+  outline: none;
+}
+body {
+  background-image: url(/github-mark.svg);
+  background-size: cover;
+  background-position: center;
 }

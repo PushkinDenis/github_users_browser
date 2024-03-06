@@ -32,8 +32,8 @@
     background-color: transparent;
     cursor: pointer;
     &:hover {
-      color: $colorActive;
-      border: 1px solid $colorActive;
+      border: 2px solid $colorBody;
+      color: $colorBody;
     }
   }
 }

@@ -1,5 +1,7 @@
 import { header } from "./header/header";
-import { findName } from "./search-menu/search-menu.ts";
+import { createUserObject } from "./search-menu/search-menu-helpers";
+import { userCard } from "./user-card/user-card";
 
 header();
-findName();
+createUserObject();
+userCard();

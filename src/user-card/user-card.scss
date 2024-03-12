@@ -1,10 +1,3 @@
-// `<div class="user-card">
-// <div class="user-card__name">${user.name}</div>
-// <div class="user-card__log">${user.login}</div>
-// <div class="user-card__id">${user.id}</div>
-// <div class="user-card__url">${user.html_url}</div>
-// <div class="user-card__loc">${user.location}</div>
-// <img src="${user.avatar_url}" alt="" class="user-card__avatar" />
 @import "../variables.scss";
 .user-card {
   display: grid;
@@ -13,6 +6,7 @@
   background: linear-gradient(to bottom, $colorActive 50%, $colorGrey 50%);
   border-radius: 15px;
   height: 100px;
+  margin: 10px 0;
 
   &__col {
     display: flex;
@@ -25,7 +19,5 @@
     height: 90px;
     border-radius: 50%;
     border: 2px solid $colorBody;
-  }
-  &__container {
   }
 }

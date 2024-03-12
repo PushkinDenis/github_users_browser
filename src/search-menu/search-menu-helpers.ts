@@ -1,7 +1,7 @@
 import { GitHubUser } from "../user-card/types";
 import { userCard } from "../user-card/user-card";
-import { addUserCard } from "../user-card/user-card";
-import { addUserList } from "../user-card/user-card";
+import { addUserCard } from "../user-card/user-card-helper";
+import { addUserList } from "../user-card/user-card-helper";
 
 const findUser = async (userLogin: string): Promise<GitHubUser> => {
   const response = await fetch(`https://api.github.com/users/${userLogin}`);

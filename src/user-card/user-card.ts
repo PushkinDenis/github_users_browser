@@ -32,34 +32,41 @@ const userCard = (user: GitHubUser): string => {
   return `<div class="user-card">
     <div class="user-card__col">
       <div class="user-card__label">Name</div>
-      <div class="user-card__name">${user.name}</div>
+      <div class="user-card__name user-card__prop">${user.name}</div>
     </div>
     <div class="user-card__col">
       <div class="user-card__label">Login</div>
-      <div class="user-card__log">${user.login}</div>
+      <div class="user-card__log user-card__prop">${user.login}</div>
     </div>
     <div class="user-card__col">
       <div class="user-card__label">ID</div>
-      <div class="user-card__id">${user.id}</div>
+      <div class="user-card__id user-card__prop">${user.id}</div>
     </div>
     <div class="user-card__col">
       <div class="user-card__label">URL</div>
-      <div class="user-card__url">${user.html_url}</div>
+      <div class="user-card__url user-card__prop">${user.html_url}</div>
     </div>
     <div class="user-card__col">
       <div class="user-card__label">Location</div>
-      <div class="user-card__loc">${user.location}</div>
+      <div class="user-card__loc user-card__prop">${user.location}</div>
     </div>
-    <img src="${user.avatar_url}" alt="" class="user-card__avatar" />
+    <div class="user-card__col">
+      <img src="${user.avatar_url} user-card__prop" alt="" class="user-card__avatar" />
+    </div>
   </div>`;
 };
 
 const addUserCard = (user: string) => {
-  const userCardContainer = document.createElement("div");
-  userCardContainer.className = "user-card__container";
-  const header = document.querySelector(".header") as HTMLElement;
-  userCardContainer.innerHTML = user;
-  header.after(userCardContainer);
+  const userCard = document.querySelector(".user-card__container");
+  if (userCard === null) {
+    const userCardContainer = document.createElement("div");
+    userCardContainer.className = "user-card__container";
+    const header = document.querySelector(".header") as HTMLElement;
+    userCardContainer.innerHTML = user;
+    header.after(userCardContainer);
+  } else {
+    userCard.innerHTML = user;
+  }
 };
 
 export { userCard };

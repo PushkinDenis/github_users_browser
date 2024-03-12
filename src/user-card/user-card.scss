@@ -5,7 +5,27 @@
 // <div class="user-card__url">${user.html_url}</div>
 // <div class="user-card__loc">${user.location}</div>
 // <img src="${user.avatar_url}" alt="" class="user-card__avatar" />
+@import "../variables.scss";
 .user-card {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 200px);
+  max-width: 1200px;
+  background: linear-gradient(to bottom, $colorActive 50%, $colorGrey 50%);
+  border-radius: 15px;
+  height: 100px;
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid $colorBody;
+  }
+  &__container {
+  }
 }

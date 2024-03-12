@@ -1,11 +1,18 @@
 import { GitHubUser } from "../user-card/types";
 import { userCard } from "../user-card/user-card";
 import { addUserCard } from "../user-card/user-card";
+import { addUserList } from "../user-card/user-card";
 
 const findUser = async (userLogin: string): Promise<GitHubUser> => {
   const response = await fetch(`https://api.github.com/users/${userLogin}`);
   const userData: GitHubUser = await response.json();
   return userData;
+};
+
+const getUsers = async () => {
+  const response = await fetch(`https://api.github.com/users`);
+  const json = await response.json();
+  return json;
 };
 
 const createUserCard = (): void => {
@@ -34,4 +41,28 @@ const createUserCard = (): void => {
   }
 };
 
+const createUsersList = (): void => {
+  const usersBtn = document.querySelector(".nav-bar__users") as HTMLElement;
+  let users = [];
+  usersBtn.addEventListener("click", () => {
+    getUsers().then((result) => {
+      console.log(result);
+      users.push(result);
+      for (let user of users[0]) {
+        user = {
+          login: user.login,
+          id: user.id,
+          avatar_url: user.avatar_url,
+          html_url: user.html_url,
+          name: user.name,
+          location: user.location,
+        };
+        const card = userCard(user);
+        addUserList(card);
+      }
+    });
+  });
+};
+
 export { createUserCard };
+export { createUsersList };

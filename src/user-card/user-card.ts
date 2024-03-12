@@ -69,5 +69,19 @@ const addUserCard = (user: string) => {
   }
 };
 
+const addUserList = (user: string) => {
+  const userList = document.querySelector(".user-list");
+  if (userList === null) {
+    const userLi = document.createElement("div");
+    userLi.className = "user-list__container";
+    const header = document.querySelector(".header") as HTMLElement;
+    userLi.insertAdjacentHTML("afterbegin", user);
+    header.after(userLi);
+  } else {
+    const userLi = document.querySelector(".header") as HTMLElement;
+    userLi.insertAdjacentHTML("afterbegin", user);
+  }
+};
 export { userCard };
 export { addUserCard };
+export { addUserList };

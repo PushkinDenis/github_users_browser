@@ -1,12 +1,14 @@
 import { GitHubUser } from "../user-card/types";
 import { userCard } from "../user-card/user-card";
+import { addUserCard } from "../user-card/user-card";
+
 const findUser = async (userLogin: string): Promise<GitHubUser> => {
   const response = await fetch(`https://api.github.com/users/${userLogin}`);
   const userData: GitHubUser = await response.json();
   return userData;
 };
 
-const createUserObject = (): void => {
+const createUserCard = (): void => {
   let gitUser: GitHubUser = {};
   const searchButtons: NodeListOf<Element> = document.querySelectorAll(".search__button");
   for (let searchButton of searchButtons) {
@@ -24,11 +26,12 @@ const createUserObject = (): void => {
             name: result.name,
             location: result.location,
           };
-          userCard(gitUser);
+          const card = userCard(gitUser);
+          addUserCard(card);
         });
       }
     });
   }
 };
 
-export { createUserObject };
+export { createUserCard };

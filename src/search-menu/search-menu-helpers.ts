@@ -46,7 +46,6 @@ const createUsersList = (): void => {
   let users = [];
   usersBtn.addEventListener("click", () => {
     getUsers().then((result) => {
-      console.log(result);
       users.push(result);
       for (let user of users[0]) {
         user = {
@@ -66,3 +65,24 @@ const createUsersList = (): void => {
 
 export { createUserCard };
 export { createUsersList };
+
+// const createUsersList = (): void => {
+//   const usersBtn = document.querySelector(".nav-bar__users") as HTMLElement;
+//   let users = [];
+//   usersBtn.addEventListener("click", () => {
+//     getUsers().then(async (result) => {
+//       for (let user of result) {
+//         let response = await fetch(`https://api.github.com/users/${user.login}`);
+//         let json = response.json();
+//         json.then((result) => {
+//           user = {
+//             login: result.login,
+//             id: result.id,
+//             avatar_url: result.avatar_url,
+//             html_url: result.html_url,
+//             name: result.name,
+//             location: result.location,
+//           };
+//           const card = userCard(user);
+//           addUserList(card);
+//         });

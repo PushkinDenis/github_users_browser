@@ -2,6 +2,7 @@
   "name": "github_users_browser",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://pushkindenis.github.io/github_users_browser/",
   "type": "module",
   "scripts": {
     "dev": "vite",

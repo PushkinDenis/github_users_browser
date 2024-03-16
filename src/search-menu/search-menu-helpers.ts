@@ -43,11 +43,11 @@ const createUserCard = (): void => {
 
 const createUsersList = (): void => {
   const usersBtn = document.querySelector(".nav-bar__users") as HTMLElement;
-  let users = [];
+  let users: object[] = [];
   usersBtn.addEventListener("click", () => {
     getUsers().then((result) => {
       users.push(result);
-      for (let user of users[0]) {
+      for (let user of users[0] as GitHubUser[]) {
         user = {
           login: user.login,
           id: user.id,

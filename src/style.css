@@ -1,12 +1,19 @@
 @import url(../src/header/header.scss);
 @import url(../src/nav-bar/nav-bar.scss);
 @import url(../src/search-menu/search-menu.scss);
+@import url(../src/user-card/user-card.scss);
 * {
   margin: 0;
   padding: 0;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -35,6 +42,13 @@ body {
   background-image: url(../public/github-mark.svg);
   background-size: cover;
   background-position: center;
+}
+
+.application-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

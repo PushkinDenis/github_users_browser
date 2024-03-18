@@ -17,24 +17,29 @@ const getUsers = async () => {
 
 const createUserCard = (): void => {
   let gitUser: GitHubUser = {};
-  const searchButtons: NodeListOf<Element> = document.querySelectorAll(".search__button");
+  const searchButtons: NodeListOf<Element> = document.querySelectorAll(".search");
   for (let searchButton of searchButtons) {
-    searchButton.addEventListener("click", (btn: Event): void => {
-      const searchBtnTarg = btn.target as HTMLElement;
-      const searchInp = searchBtnTarg.previousElementSibling!.firstElementChild as HTMLInputElement;
+    searchButton.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const searchBtnTarg = event.target as HTMLElement;
+      console.log(searchBtnTarg);
+      const searchInp = searchBtnTarg.firstElementChild!.nextElementSibling!.firstElementChild as HTMLInputElement;
+      console.log(searchInp);
       const searchInpVal: string = searchInp.value;
       if (searchInpVal !== "") {
         findUser(searchInpVal).then((result) => {
-          gitUser = {
-            login: result.login,
-            id: result.id,
-            avatar_url: result.avatar_url,
-            html_url: result.html_url,
-            name: result.name,
-            location: result.location,
-          };
-          const card = userCard(gitUser);
-          addUserCard(card);
+          if (result.login !== undefined) {
+            gitUser = {
+              login: result.login,
+              id: result.id,
+              avatar_url: result.avatar_url,
+              html_url: result.html_url,
+              name: result.name,
+              location: result.location,
+            };
+            const card = userCard(gitUser);
+            addUserCard(card);
+          }
         });
       }
     });
@@ -86,3 +91,28 @@ export { createUsersList };
 //           const card = userCard(user);
 //           addUserList(card);
 //         });
+// const createUserCard = (): void => {
+//   let gitUser: GitHubUser = {};
+//   const searchButtons: NodeListOf<Element> = document.querySelectorAll(".search__button");
+//   for (let searchButton of searchButtons) {
+//     searchButton.addEventListener("click", (btn: Event): void => {
+//       const searchBtnTarg = btn.target as HTMLElement;
+//       const searchInp = searchBtnTarg.previousElementSibling!.firstElementChild as HTMLInputElement;
+//       const searchInpVal: string = searchInp.value;
+//       if (searchInpVal !== "") {
+//         findUser(searchInpVal).then((result) => {
+//           gitUser = {
+//             login: result.login,
+//             id: result.id,
+//             avatar_url: result.avatar_url,
+//             html_url: result.html_url,
+//             name: result.name,
+//             location: result.location,
+//           };
+//           const card = userCard(gitUser);
+//           addUserCard(card);
+//         });
+//       }
+//     });
+//   }
+// };

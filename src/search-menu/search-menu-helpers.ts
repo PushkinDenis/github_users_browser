@@ -50,21 +50,27 @@ const createUsersList = (): void => {
   const usersBtn = document.querySelector(".nav-bar__users") as HTMLElement;
   let users: GitHubUser[] = [];
   usersBtn.addEventListener("click", () => {
-    getUsers().then((result) => {
-      users.push(result);
-      for (let user of users[0] as GitHubUser[]) {
-        user = {
-          login: user.login,
-          id: user.id,
-          avatar_url: user.avatar_url,
-          html_url: user.html_url,
-          name: user.name,
-          location: user.location,
-        };
-        const card = userCard(user);
-        addUserList(card);
-      }
-    });
+    if (document.querySelector(".user-list__container") === null) {
+      addUserList();
+      const userList = document.querySelector(".user-list__container") as HTMLDivElement;
+      getUsers().then((result) => {
+        users.push(result);
+        for (let user of users[0] as GitHubUser[]) {
+          user = {
+            login: user.login,
+            id: user.id,
+            avatar_url: user.avatar_url,
+            html_url: user.html_url,
+            name: user.name,
+            location: user.location,
+          };
+          console.log(user);
+          userList.insertAdjacentHTML("beforeend", userCard(user));
+        }
+      });
+    } else {
+      return;
+    }
   });
 };
 

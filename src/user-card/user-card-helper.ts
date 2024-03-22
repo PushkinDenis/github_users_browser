@@ -11,19 +11,31 @@ const addUserCard = (user: string) => {
   }
 };
 
-const addUserList = (user: string) => {
+const addUserList = () => {
   const userList = document.querySelector(".user-list");
   if (userList === null) {
     const userLi = document.createElement("div");
     userLi.className = "user-list__container";
     const main = document.querySelector(".application-main") as HTMLElement;
-    userLi.insertAdjacentHTML("afterbegin", user);
     main.append(userLi);
   } else {
-    const main = document.querySelector(".application-main") as HTMLElement;
-    main.insertAdjacentHTML("afterbegin", user);
+    return;
   }
 };
 
 export { addUserCard };
 export { addUserList };
+
+// const addUserList = (user: string) => {
+//   const userList = document.querySelector(".user-list");
+//   if (userList === null) {
+//     const userLi = document.createElement("div");
+//     userLi.className = "user-list__container";
+//     const main = document.querySelector(".application-main") as HTMLElement;
+//     userLi.insertAdjacentHTML("afterbegin", user);
+//     main.append(userLi);
+//   } else {
+//     const main = document.querySelector(".application-main") as HTMLElement;
+//     main.insertAdjacentHTML("afterbegin", user);
+//   }
+// };

@@ -3,6 +3,7 @@
 @import url(../src/nav-bar/nav-bar.scss);
 @import url(../src/search-menu/search-menu.scss);
 @import url(../src/user-card/user-card.scss);
+@import url(../src/pagination/pagination.scss);
 * {
   margin: 0;
   padding: 0;
@@ -43,4 +44,23 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* отображаем курсор в виде руки при наведении; некоторые
+  считают, что необходимо оставлять стрелочный вид для кнопок */
+  cursor: pointer;
 }

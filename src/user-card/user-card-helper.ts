@@ -11,7 +11,7 @@ const addUserCard = (user: string) => {
   }
 };
 
-const addUserList = () => {
+const addUserList = (): void => {
   const userList = document.querySelector(".user-list");
   if (userList === null) {
     const userLi = document.createElement("div");

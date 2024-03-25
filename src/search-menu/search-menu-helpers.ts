@@ -2,6 +2,7 @@ import { GitHubUser } from "../user-card/types";
 import { userCard } from "../user-card/user-card";
 import { addUserCard } from "../user-card/user-card-helper";
 import { addUserList } from "../user-card/user-card-helper";
+import { addPagination, paginate } from "../pagination/pagination-helper";
 
 const findUser = async (userLogin: string): Promise<GitHubUser> => {
   const response = await fetch(`https://api.github.com/users/${userLogin}`);
@@ -10,8 +11,9 @@ const findUser = async (userLogin: string): Promise<GitHubUser> => {
 };
 
 const getUsers = async () => {
-  const response = await fetch(`https://api.github.com/users`);
+  const response = await fetch(`https://api.github.com/users?since=0&per_page=100`);
   const json = await response.json();
+  console.log(json);
   return json;
 };
 
@@ -53,21 +55,26 @@ const createUsersList = (): void => {
     if (document.querySelector(".user-list__container") === null) {
       addUserList();
       const userList = document.querySelector(".user-list__container") as HTMLDivElement;
-      getUsers().then((result) => {
-        users.push(result);
-        for (let user of users[0] as GitHubUser[]) {
-          user = {
-            login: user.login,
-            id: user.id,
-            avatar_url: user.avatar_url,
-            html_url: user.html_url,
-            name: user.name,
-            location: user.location,
-          };
-          console.log(user);
-          userList.insertAdjacentHTML("beforeend", userCard(user));
-        }
-      });
+      console.log(getUsers());
+      getUsers()
+        .then((result) => {
+          users.push(result);
+          for (let user of users[0] as GitHubUser[]) {
+            user = {
+              login: user.login,
+              id: user.id,
+              avatar_url: user.avatar_url,
+              html_url: user.html_url,
+              name: user.name,
+              location: user.location,
+            };
+            userList.insertAdjacentHTML("beforeend", userCard(user));
+          }
+        })
+        .then(() => {
+          addPagination();
+          paginate();
+        });
     } else {
       return;
     }

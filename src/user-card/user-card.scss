@@ -1,7 +1,7 @@
 @import "../variables.scss";
 .user-card {
   display: grid;
-  grid-template-columns: repeat(6, 200px);
+  grid-template-columns: repeat(4, 250px);
   max-width: 1200px;
   background: linear-gradient(to bottom, $colorActive 50%, $colorGrey 50%);
   border-radius: 15px;
@@ -19,18 +19,19 @@
     height: 90px;
     border-radius: 50%;
     border: 2px solid $colorBody;
+    margin-left: 40px;
   }
 }
 .user-list {
   &__container {
     overflow: scroll;
-    height: 100vh;
+    height: calc(100vh - 130px);
     overflow-x: auto;
   }
   &__container::-webkit-scrollbar {
     width: 5px;
     height: 8px;
-    background-color: $colorGrey; /* or add it to the track */
+    background-color: $colorGrey;
   }
   &__container::-webkit-scrollbar-thumb {
     background: $colorBody;

@@ -1,7 +1,62 @@
+@import "../variables.scss";
+
 .pagination {
   display: flex;
+  margin: 20px 0;
+  align-items: center;
   &__li {
-    margin: 0 10px;
+    margin: 0 15px;
     cursor: pointer;
+    font-size: 20px;
+  }
+  &__num {
+    position: relative;
+    z-index: 100;
+  }
+  &__num:before {
+    content: "";
+    position: absolute;
+    width: calc(1em * 2);
+    height: calc(1em * 2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+  }
+  &__total-num {
+    position: relative;
+  }
+  &__total-num:before {
+    content: "";
+    position: absolute;
+    width: calc(1em * 2);
+    height: calc(1em * 2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+  }
+  &__total-num:hover:before {
+    background-color: $colorGrey;
+  }
+  &__num:hover:before {
+    background-color: $colorGrey;
+  }
+  &__num:focus:before {
+    background-color: $colorGrey;
+  }
+  &__btn:hover {
+    color: $colorActive;
+  }
+  &__btn {
+    font-size: 25px;
+  }
+  &__min-btn {
+    margin-right: 10px;
+  }
+  &__pls-btn {
+    margin-left: 10px;
   }
 }

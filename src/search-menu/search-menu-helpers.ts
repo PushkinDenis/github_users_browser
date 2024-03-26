@@ -1,5 +1,5 @@
 import { GitHubUser } from "../user-card/types";
-import { userCard } from "../user-card/user-card";
+import { userCard, userSearchCard } from "../user-card/user-card";
 import { addUserCard } from "../user-card/user-card-helper";
 import { addUserList } from "../user-card/user-card-helper";
 import { addPagination, paginate } from "../pagination/pagination-helper";
@@ -81,9 +81,35 @@ const createUsersList = (): void => {
   });
 };
 
+const searchUser = (): void => {
+  const input = document.querySelector(".search__input");
+  input!.addEventListener("input", (elem) => {
+    setTimeout(() => {
+      let gitUser: GitHubUser = {};
+      let inp = elem.target as HTMLInputElement;
+      let val = inp.value;
+      findUser(val).then((result) => {
+        if (result.login !== undefined) {
+          gitUser = {
+            login: result.login,
+            id: result.id,
+            avatar_url: result.avatar_url,
+            html_url: result.html_url,
+            name: result.name,
+            location: result.location,
+          };
+          const card = userSearchCard(gitUser);
+          addUserCard(card);
+        }
+      });
+    }, 1500);
+  });
+};
+
 export { createUserCard };
 export { createUsersList };
 export { getUsers };
+export { searchUser };
 // const createUsersList = (): void => {
 //   const usersBtn = document.querySelector(".nav-bar__users") as HTMLElement;
 //   let users = [];

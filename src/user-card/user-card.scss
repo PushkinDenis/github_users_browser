@@ -7,7 +7,15 @@
   border-radius: 15px;
   height: 100px;
   margin: 10px 0;
-
+  &__search {
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    max-width: 1200px;
+    background: linear-gradient(to bottom, $colorActive 50%, $colorGrey 50%);
+    border-radius: 15px;
+    height: 100px;
+    margin: 10px 0;
+  }
   &__col {
     display: flex;
     flex-direction: column;

@@ -83,7 +83,7 @@ const createUsersList = (): void => {
 
 export { createUserCard };
 export { createUsersList };
-
+export { getUsers };
 // const createUsersList = (): void => {
 //   const usersBtn = document.querySelector(".nav-bar__users") as HTMLElement;
 //   let users = [];

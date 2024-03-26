@@ -1,6 +1,7 @@
 const pagination = (): string => {
   return `<ul class="pagination">
     <button class="pagination__btn pagination__min-btn">&lt</button>
+    <li class="pagination__li pagination__num" tabindex="0">0</li>
     <li class="pagination__li pagination__num" tabindex="0">1</li>
     <li class="pagination__li pagination__num" tabindex="0">2</li>
     <li class="pagination__li pagination__num" tabindex="0">3</li>

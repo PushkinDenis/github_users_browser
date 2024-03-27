@@ -1,6 +1,6 @@
 import { GitHubUser } from "../user-card/types";
 import { userCard, userSearchCard } from "../user-card/user-card";
-import { addUserCard, addSearchUserCard } from "../user-card/user-card-helper";
+import { addSearchUserCard } from "../user-card/user-card-helper";
 import { addUserList } from "../user-card/user-card-helper";
 import { addPagination, paginate } from "../pagination/pagination-helper";
 

@@ -64,3 +64,12 @@ button {
   считают, что необходимо оставлять стрелочный вид для кнопок */
   cursor: pointer;
 }
+
+.header {
+  position: relative;
+}
+.user-card__search-container {
+  position: absolute;
+  top: 8%;
+  left: 83%;
+}

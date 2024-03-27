@@ -23,9 +23,22 @@ const addUserList = (): void => {
   }
 };
 
+const addSearchUserCard = (user: string) => {
+  const userCard = document.querySelector(".user-card__search-container");
+  if (userCard === null) {
+    const userCardContainer = document.createElement("div");
+    userCardContainer.className = "user-card__search-container";
+    const main = document.querySelector(".application-main") as HTMLElement;
+    userCardContainer.innerHTML = user;
+    main.prepend(userCardContainer);
+  } else {
+    userCard.innerHTML = user;
+  }
+};
+
 export { addUserCard };
 export { addUserList };
-
+export { addSearchUserCard };
 // const addUserList = (user: string) => {
 //   const userList = document.querySelector(".user-list");
 //   if (userList === null) {

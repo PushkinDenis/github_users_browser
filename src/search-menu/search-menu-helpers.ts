@@ -1,6 +1,6 @@
 import { GitHubUser } from "../user-card/types";
 import { userCard, userSearchCard } from "../user-card/user-card";
-import { addUserCard } from "../user-card/user-card-helper";
+import { addUserCard, addSearchUserCard } from "../user-card/user-card-helper";
 import { addUserList } from "../user-card/user-card-helper";
 import { addPagination, paginate } from "../pagination/pagination-helper";
 
@@ -39,8 +39,8 @@ const createUserCard = (): void => {
               name: result.name,
               location: result.location,
             };
-            const card = userCard(gitUser);
-            addUserCard(card);
+            const card = userSearchCard(gitUser);
+            addSearchUserCard(card);
           }
         });
       }
@@ -99,7 +99,7 @@ const searchUser = (): void => {
             location: result.location,
           };
           const card = userSearchCard(gitUser);
-          addUserCard(card);
+          addSearchUserCard(card);
         }
       });
     }, 1500);
